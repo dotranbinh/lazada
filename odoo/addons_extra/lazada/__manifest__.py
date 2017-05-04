@@ -12,9 +12,11 @@
     'website': 'https://biga.vn',
     'depends' : ['product'],
     'data': [
-        'views/menu_view.xml',
+        'security/security.xml',
         'views/product_seller_view.xml',
-        'views/seller_views.xml'
+        'views/seller_view.xml',
+        'views/menu_view.xml',
+
     ],
     'demo': [
 

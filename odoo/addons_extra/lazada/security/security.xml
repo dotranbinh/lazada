@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+     <record id="lazada.group_bidding_manager" model="res.groups">
+        <field name="name">Quản lý đấu giá</field>
+    </record>
+
+</odoo>

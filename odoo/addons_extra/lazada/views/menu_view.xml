@@ -11,16 +11,23 @@
               groups = "group_bidding_manager"
         sequence="1"/>
 
+     <menuitem name="Quản lý đấu giá"
+        id="menu_bidding_management_root_2"
+              groups = "group_bidding_manager"
+                       parent= "menu_bidding_management_root"
+
+        sequence="1"/>
+
     <menuitem name="Sản phẩm"
         id="menu_product_seller"
-        parent= "menu_bidding_management_root"
+        parent= "menu_bidding_management_root_2"
               sequence="2"
-              action = 'action_open_seller_seller'
+              action = 'action_open_product_seller'
         />
 
     <menuitem name="Seller"
         id="menu_seller_seller"
-        parent= "menu_bidding_management_root"
+        parent= "menu_bidding_management_root_2"
               sequence="3"
               action = 'action_open_seller_seller'
         />
