@@ -31,8 +31,14 @@ class Seller(models.Model):
             parameters['Signature'] = HMAC(api_key, concatenated, sha256).hexdigest()
             concatenated = urllib.urlencode(sorted(parameters.items()))
             url = '{0}?{1}'.format(seller.url_api, concatenated)
+            print url
             res = urllib.urlopen(url)
-            print res.read()['SuccessResponse']
-            data = json.loads(res.read().decode('utf-8'))
-            print data
+            products = json.loads(res.read())['SuccessResponse']['Body']['Products']
+            for prod in products:
+                prod_name =  prod['Attributes']['name']
+                reference = prod['Skus'][0]['ShopSku']
+                vals= {'name':prod_name,'default_code':reference}
+                prod_id = self.env['product.product'].create(vals)
+                self.env['product.seller'].create({'product_id':prod_id.id,'seller_id':seller.id})
+
         return True
